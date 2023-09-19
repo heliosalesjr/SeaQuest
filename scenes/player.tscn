@@ -40,7 +40,6 @@ animations = [{
 }]
 
 [node name="Player" type="AnimatedSprite2D"]
-position = Vector2(50, 35)
 sprite_frames = SubResource("SpriteFrames_4pla6")
 autoplay = "default"
 frame_progress = 0.0615396
