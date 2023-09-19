@@ -5,6 +5,8 @@
 
 [node name="Game" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource("1_8b806")]
-
 [node name="PlayerBullet" parent="." instance=ExtResource("2_eofjk")]
+position = Vector2(137, 70)
+
+[node name="Player" parent="." instance=ExtResource("1_8b806")]
+position = Vector2(137, 70)
