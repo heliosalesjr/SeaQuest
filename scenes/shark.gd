@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends Area2D
 
 const SPEED = 100
 const MOVEMENT_FREQUENCY = 0.1
@@ -13,6 +13,7 @@ func _physics_process(_delta):
 
 
 
-func _on_hitbox_area_entered(area):
-	area.get_parent().queue_free()
-	queue_free()
+func _on_area_entered(area):
+	if area.is_in_group("PlayerBullet"):
+		area.queue_free()
+		queue_free()

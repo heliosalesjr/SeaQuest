@@ -7,10 +7,16 @@
 [node name="Game" type="Node"]
 
 [node name="PlayerBullet" parent="." instance=ExtResource("2_eofjk")]
-position = Vector2(137, 70)
+position = Vector2(21, 69)
 
 [node name="Player" parent="." instance=ExtResource("1_8b806")]
-position = Vector2(137, 70)
+position = Vector2(21, 69)
 
 [node name="Shark" parent="." instance=ExtResource("3_25k7n")]
-position = Vector2(18, 95)
+position = Vector2(77, 71)
+
+[node name="Shark2" parent="." instance=ExtResource("3_25k7n")]
+position = Vector2(88, 84)
+
+[node name="Shark3" parent="." instance=ExtResource("3_25k7n")]
+position = Vector2(100, 65)
