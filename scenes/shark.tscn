@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://11ev37mnkhck"]
+[gd_scene load_steps=9 format=3 uid="uid://11ev37mnkhck"]
 
 [ext_resource type="Texture2D" uid="uid://dtxavbs8q71ll" path="res://assets/enemies/shark/shark.png" id="1_ijyp8"]
 [ext_resource type="Script" path="res://scenes/shark.gd" id="2_bwesd"]
@@ -39,8 +39,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia8em"]
+size = Vector2(16, 7)
+
 [node name="Shark" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_71b68")
 autoplay = "default"
-frame_progress = 0.424676
+frame_progress = 0.376032
 script = ExtResource("2_bwesd")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ia8em")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
