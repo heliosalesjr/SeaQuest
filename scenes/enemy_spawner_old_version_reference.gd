@@ -20,3 +20,4 @@ func _on_timer_timeout():
 		shark_instance.flip_direction()
 
 	
+	
