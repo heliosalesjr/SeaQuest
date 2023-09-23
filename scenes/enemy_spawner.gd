@@ -5,6 +5,12 @@ const Shark = preload("res://scenes/shark.tscn")
 @onready var right = $Right
 
 func _on_spawn_enemy_timer_timeout():
+	
+	for i in range(3):
+		spawn_enemy()
+	
+		
+func spawn_enemy():
 	var rand_spawn_point_number = randi_range(1,4)
 	
 	var selected_side_node = left
