@@ -5,11 +5,12 @@ const MOVEMENT_FREQUENCY = 0.1
 const MOVEMENT_AMPLITUDE = 0.3
 
 var velocity = Vector2(1,0)
+var random_offset = randf_range(0,10)
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _physics_process(_delta):
-	velocity.y = sin(global_position.x * MOVEMENT_FREQUENCY) * MOVEMENT_AMPLITUDE
+	velocity.y = sin(global_position.x * MOVEMENT_FREQUENCY + random_offset) * MOVEMENT_AMPLITUDE
 	global_position += velocity * SPEED * _delta
 
 func flip_direction():
