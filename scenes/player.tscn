@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1vxbos1qyo5e"]
+[gd_scene load_steps=9 format=3 uid="uid://b1vxbos1qyo5e"]
 
 [ext_resource type="Texture2D" uid="uid://cnu50tras1hq3" path="res://assets/player/player.png" id="1_m7mlg"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_lminf"]
@@ -39,15 +39,24 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="AnimatedSprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lqwi"]
+size = Vector2(17, 12)
+
+[node name="Player" type="Area2D" groups=["Player"]]
+script = ExtResource("2_lminf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -2)
 sprite_frames = SubResource("SpriteFrames_4pla6")
 autoplay = "default"
 frame_progress = 0.0615396
-script = ExtResource("2_lminf")
 
 [node name="ReloadTimer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -2)
+shape = SubResource("RectangleShape2D_4lqwi")
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

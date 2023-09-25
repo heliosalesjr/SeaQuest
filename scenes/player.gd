@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends Area2D
 
 var velocity = Vector2(0,0)
 var can_shoot = true
@@ -8,6 +8,7 @@ const BULLET_OFFSET = 7
 const Bullet = preload("res://scenes/player_bullet.tscn")
 
 @onready var reload_timer = $ReloadTimer
+@onready var sprite = $AnimatedSprite2D
 
 func _process(_delta):
 	velocity.x = Input.get_axis("move_left", "move_right")
@@ -16,9 +17,9 @@ func _process(_delta):
 	velocity = velocity.normalized()
 	
 	if velocity.x > 0:
-		flip_h = false
+		sprite.flip_h = false
 	elif velocity.x < 0:
-		flip_h = true
+		sprite.flip_h = true
 	else:
 		pass
 	
@@ -27,7 +28,7 @@ func _process(_delta):
 		
 		get_tree().current_scene.add_child(bullet_instance)
 		
-		if flip_h == true:
+		if sprite.flip_h == true:
 			bullet_instance.flip_direction()
 			bullet_instance.global_position = Vector2(global_position.x -BULLET_OFFSET, global_position.y)
 		else:
